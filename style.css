@@ -1,0 +1,14 @@
+body {
+    background-color: grey;
+}
+
+#container {
+    width: 600px;
+    height: 400px;
+}
+
+/* Tweaking API default styles */
+.CodeMirror {
+    font-family: monospace, 'Courier New', Courier;
+    font-size: 22px;
+}
