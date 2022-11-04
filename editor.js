@@ -1,19 +1,21 @@
-const container = document.getElementById("container");
-const  codeFold = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
+const container = document.getElementById("container")
+// code folding structure
+const  codeFold = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder)
+// Preset properties of the editor
 const options = {
     mode: "text/x-cyclone",
-    theme: "cobalt",
+    theme: "twilight",
     tabSize: 4,
+    tabMode: 'indent',
     lineNumbers: true,
     keyMap: "sublime",
     lineWrapping: true,
-    scrollbarStyle: "native", // "native", null
+    scrollbarStyle: null, // "native", null
     showCursorWhenSelecting: true,
     autofocus: true,
     cursorBlinkRate: 600,
     cursorHeight: 1,
     matchBrackets: true,
-    tabMode: 'indent',
     continuousScanning: 500,
     onGutterClick: codeFold,
     styleActiveLine: true,
@@ -27,4 +29,6 @@ const options = {
         "CodeMirror-foldgutter"
     ]
 }
+
 const editor = CodeMirror(container, options)
+
