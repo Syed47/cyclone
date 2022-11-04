@@ -21,8 +21,8 @@ body {
     cursor: pointer;
 }
 
-.CodeMirror-foldgutter {
+/* .CodeMirror-foldgutter {
  color: black;
  background-color: red;
  font-size: 18px;
-}
+} */

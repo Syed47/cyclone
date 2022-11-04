@@ -11,7 +11,7 @@ const options = {
     showCursorWhenSelecting: true,
     autofocus: true,
     cursorBlinkRate: 600,
-    cursorHeight: 0.85,
+    cursorHeight: 1,
     matchBrackets: true,
     tabMode: 'indent',
     continuousScanning: 500,

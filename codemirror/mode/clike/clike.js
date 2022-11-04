@@ -487,18 +487,6 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     atoms: words("true false null"),
     number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
     hooks: {
-      // "@": function(stream) {
-      //   // Don't match the @interface keyword.
-      //   if (stream.match('interface', false)) return false;
-
-      //   stream.eatWhile(/[\w\$_]/);
-      //   return "meta";
-      // },
-      // '"': function(stream, state) {
-      //   if (!stream.match(/""$/)) return false;
-      //   state.tokenize = tokenTripleString;
-      //   return state.tokenize(stream, state);
-      // }
     },
     modeProps: {fold: ["brace", "import"]}
   });
