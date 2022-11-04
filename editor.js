@@ -1,16 +1,30 @@
-(function() {
-    const container = document.getElementById("container");
-    const editor = CodeMirror(container, {
-        mode: "javascript",
-        theme: "cobalt",
-        tabSize: 4,
-        lineNumbers: true,
-        keyMap: "sublime",
-        lineWrapping: false,
-        scrollbarStyle: null, // "native", null
-        showCursorWhenSelecting: true,
-        autofocus: true,
-        cursorBlinkRate: 180,
-        cursorHeight: 0.85
-    })
-})()
+const container = document.getElementById("container");
+const  codeFold = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder);
+const options = {
+    mode: "text/x-cyclone",
+    theme: "cobalt",
+    tabSize: 4,
+    lineNumbers: true,
+    keyMap: "sublime",
+    lineWrapping: true,
+    scrollbarStyle: "native", // "native", null
+    showCursorWhenSelecting: true,
+    autofocus: true,
+    cursorBlinkRate: 600,
+    cursorHeight: 0.85,
+    matchBrackets: true,
+    tabMode: 'indent',
+    continuousScanning: 500,
+    onGutterClick: codeFold,
+    styleActiveLine: true,
+    extraKeys: {
+        "Ctrl-Q": cm => codeFold(cm, cm.getCursor().line)
+    },
+    foldGutter: true,
+    autoRefresh: true,
+    gutters: [
+        "CodeMirror-linenumbers", 
+        "CodeMirror-foldgutter"
+    ]
+}
+const editor = CodeMirror(container, options)

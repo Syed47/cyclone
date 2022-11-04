@@ -477,6 +477,32 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     modeProps: {fold: ["brace", "include"]}
   });
 
+  def("text/x-cyclone", {
+    name: "clike",
+    keywords: words("abstract assert at bool char condition const check edge enum enumerate final for fresh goal graph int initial invariant label let machine node normal prev on reach real start state stop string trans transition via where with"),
+    types: words("int real bool enum record string char"),
+    blockKeywords: words("graph machine node edge trans transition goal"),
+    defKeywords: words("at condition const check edge"),
+    typeFirstDefinitions: true,
+    atoms: words("true false null"),
+    number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
+    hooks: {
+      // "@": function(stream) {
+      //   // Don't match the @interface keyword.
+      //   if (stream.match('interface', false)) return false;
+
+      //   stream.eatWhile(/[\w\$_]/);
+      //   return "meta";
+      // },
+      // '"': function(stream, state) {
+      //   if (!stream.match(/""$/)) return false;
+      //   state.tokenize = tokenTripleString;
+      //   return state.tokenize(stream, state);
+      // }
+    },
+    modeProps: {fold: ["brace", "import"]}
+  });
+
   def("text/x-java", {
     name: "clike",
     keywords: words("abstract assert break case catch class const continue default " +
