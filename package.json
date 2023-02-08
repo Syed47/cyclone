@@ -1,0 +1,22 @@
+{
+  "name": "cyclone",
+  "version": "1.0.0",
+  "description": "Cyclone web IDE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syed47/cyclone.git"
+  },
+  "author": "Syed Baryalay AKA CodeNinja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syed47/cyclone/issues"
+  },
+  "homepage": "https://github.com/Syed47/cyclone#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
