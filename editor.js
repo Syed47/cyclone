@@ -1,4 +1,4 @@
-const container = document.getElementById("container")
+const container = document.getElementById("editor")
 // code folding structure
 const  codeFold = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder)
 // Preset properties of the editor
@@ -16,7 +16,7 @@ const options = {
     cursorBlinkRate: 600,
     cursorHeight: 1,
     matchBrackets: true,
-    continuousScanning: 500,
+    continuousScanning: 400,
     onGutterClick: codeFold,
     styleActiveLine: true,
     extraKeys: {

@@ -15,14 +15,27 @@
     </head>
 
     <body>
-        <div id="topbar">
-            <div id="logopane"></div>
-            <!-- <p id="logopane">Cyclone IDE</p> -->
-            <div id="actionpane"></div>
-        </div>
-        <div id="middlebar">
-            <div id="fileexplorer"></div>
-            <div id="container"></div>
+        <div id="wrapper">
+            <div id="navbar">
+                <div id="logopane">
+                    <p id="logo-text">Cyclone IDE Online</p>
+                </div>
+                <div id="actionpane">
+                    <button class="action-btn" id="btn-run">Run</button>
+                    <button class="action-btn" id="btn-stop">Stop</button>
+                    <button class="action-btn" id="btn-download">Download</button>
+                </div>
+            </div>
+
+            <div id="core">
+                <div id="fileexplorer"></div>
+                <div id="container">
+                    <div id="editor"></div>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+
+            <div id="bottombar"></div>
         </div>
     </body>
 
