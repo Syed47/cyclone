@@ -2,8 +2,13 @@
 <html>
     <head>
         <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+        <link rel="stylesheet" href="codemirror/theme/solarized.css">
         <link rel="stylesheet" href="codemirror/theme/twilight.css">
+        <link rel="stylesheet" href="codemirror/theme/darcula.css">
+        <link rel="stylesheet" href="codemirror/theme/eclipse.css">
+        <link rel="stylesheet" href="codemirror/theme/idea.css">
         <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
+        <link rel="stylesheet" href="xterm/css/xterm.css" />
         <link rel="stylesheet" href="style.css">
 
         <script src="codemirror/lib/codemirror.js"></script>
@@ -12,18 +17,51 @@
         <script src="codemirror/addon/fold/brace-fold.js"></script>
         <script src="codemirror/addon/fold/foldcode.js"></script>
         <script src="codemirror/addon/fold/foldgutter.js"></script>
+        <script src="xterm/lib/xterm.js"></script>
+
     </head>
 
     <body>
         <div id="wrapper">
             <div id="navbar">
                 <div id="logopane">
-                    <p id="logo-text">Cyclone Online IDE</p>
+                    <p id="logo-text" style="color: white;">Cyclone IDE_</p>
                 </div>
                 <div id="actionpane">
+                    <button class="action-btn" id="btn-download">Download</button>
                     <button class="action-btn" id="btn-run">Run</button>
                     <button class="action-btn" id="btn-stop">Stop</button>
-                    <button class="action-btn" id="btn-download">Download</button>
+
+                    <select class="action-selector" id="font-size-selector">
+                        <option value="tiny">12px</option>
+                        <option value="small" selected>14px</option>
+                        <option value="medium">16px</option>
+                        <option value="large">18px</option>
+                        <option value="super">22px</option>
+                    </select>
+
+                    <select class="action-selector" id="theme-selector">
+                        <optgroup label="Light">
+                            <option value="eclipse">eclipse</option>
+                            <option value="idea">idea</option>
+                        </optgroup>
+
+                        <optgroup label="Dark">
+                            <option value="solarized">solarized</option>
+                            <option value="twilight" selected>twilight</option>
+                            <option value="darcula">darcula</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div id="accountpane">
+                    <h3 style="margin: auto; margin-right: 20px; color: white;">John Doe</h3>
+                    <div style="border-radius: 100px; 
+                                width: 40px; 
+                                height: 40px;
+                                margin-right: 10px;">  
+                        <img style="height:100%; width:100%" src="media/user.png">  
+                    </div>
                 </div>
             </div>
 
@@ -40,6 +78,8 @@
     </body>
 
     <script src="editor.js"></script>
+
+    <!-- <script src="terminal.js"></script> -->
 </html>
 
 
