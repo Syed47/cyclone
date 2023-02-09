@@ -286,15 +286,14 @@
 
     def("text/x-cyclone", {
       name: "clike",
-      keywords: words("abstract assert at bool char condition const check edge enum enumerate final for fresh goal graph int initial invariant label let machine node normal prev on reach real start state stop string trans transition via where with"),
+      keywords: words("abstract assert at bool char condition const check edge enum enumerate final for fresh goal graph int initial invariant label let machine node normal prev on reach real start state stop string trans transition via where with _"),
       types: words("int real bool enum record"),
       blockKeywords: words("graph machine node edge trans transition goal"),
-      defKeywords: words("graph machine trans transition record node edge goal"),
+      defKeywords: words("graph machine trans transition record node edge goal "),
       typeFirstDefinitions: true,
       atoms: words("true false null"),
       number: /^(?:0x[a-f\d_]+|0b[01_]+|(?:[\d_]+\.?\d*|\.\d+)(?:e[-+]?[\d_]+)?)(u|ll?|l|f)?/i,
-      hooks: {
-      },
+      hooks: {},
       modeProps: {fold: ["brace", "import"]}
     });
 });
