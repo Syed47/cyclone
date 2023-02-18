@@ -30,6 +30,73 @@ const editor = CodeMirror(document.getElementById("editor"), {
 })
 
 
+document.getElementById("btn-run").addEventListener('click', () => {
+    const code = editor.getValue() 
+    console.log('cliedk')
+    fetch('http://localhost:3000/run', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log('response')
+        // console.log(data)
+        for (const line of data.code) console.log(ansiToHtml(line))
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+})
+
+
+
+
+
+function ansiToHtml(ansiText) {
+  // ANSI escape codes for colors
+  const ansiColorMap = {
+    30: "color:black", // black
+    31: "color:red", // red
+    32: "color:green", // green
+    33: "color:yellow", // yellow
+    34: "color:blue", // blue
+    35: "color:purple", // purple
+    36: "color:cyan", // cyan
+    37: "color:white", // white
+  };
+  
+  // Convert ANSI color codes to HTML tags
+  const htmlText = ansiText.replace(/\u001b\[(\d+)m/g, (match, code) => {
+    if (code in ansiColorMap) {
+      return `<span style="${ansiColorMap[code]}">`;
+    } else if (code === "0") {
+      return "";
+    } else {
+      return match;
+    }
+  });
+  
+  return htmlText;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
