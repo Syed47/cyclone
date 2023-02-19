@@ -2,7 +2,7 @@ html, body, #wrapper {
 /*    display: flex;
     flex-direction: column;
     justify-content: space-between;*/
-    background-color: rgb(37, 15, 102);
+    background-color: rgb(15, 14, 69);
     width: 100%;
 /*    min-height: 400px;*/
     height: 100%;
@@ -21,9 +21,16 @@ html, body, #wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
-    width: 100%;
+    width: 99%;
+/*    top:1px;*/
+/*    bottom: 1px;*/
     height: 40px;
-    background-color: rgb(37, 15, 102);
+/*    background-color: rgb(15, 14, 69);*/
+    background-color: rgb(15, 14, 69);;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16) inset;
+    border-radius: 6px;
+    margin: 2px 0px 0px 6px;
+
 /*    border: 2px solid pink;*/
 }
 
@@ -31,7 +38,7 @@ html, body, #wrapper {
 /*    min-height: 36px;*/
     width: 25%;
     height: 100%;
-    background-color: rgb(37, 15, 102);;
+/*    background-color: rgb(15, 14, 69);;*/
 /*    border: 2px solid lime;*/
 }
 
@@ -48,43 +55,54 @@ html, body, #wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 50%;
-    padding: 0px 10px 0px 10px;
+    width: 75%;
+    max-width: 540px;
 /*    max-width: 800px;*/
     height: 100%;
-    background-color: rgb(37, 15, 102);;
-/*    border: 2px solid lime;*/
 }
 
 .action-btn {
     border: none;
     color: white;
-    padding: 0px 24px;
+    padding: 0px 14px;
     text-align: center;
+    font-weight: bold;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 12px;
 /*    margin: auto;*/
     cursor: pointer;
-    margin-right: 10px;
+    margin: 6px;
 /*    margin-left: 10px;*/
-/*    border-radius: 18px;*/
     font-weight: bold;
+     border-radius: 8px;
+    background-color: rgb(15, 14, 69);;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16) inset;
+    border-radius: 6px;
 
 }
 
-#btn-run { background-color: green; } 
+#btn-run { 
+    color: lime; 
+    background-color: rgb(15, 14, 69);
+    box-shadow: 0 0 2px 2px lime inset;
+
+} 
 #btn-stop { background-color: red; } 
 #btn-download { background-color: orange; } 
 
 .action-selector {
     padding: 0px 24px;
     background-color: rgb(54, 140, 201); 
-    border:none;
-    color: white;
+    border-radius: 4px;
+    color: rgb(201, 121, 16);
     font-weight: bold;
     cursor: pointer;
-    margin-right: 10px;
+    margin: 6px;
+    background-color: rgb(15, 14, 69);;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16) inset;
+    border-radius: 6px;
+
 }
 
 /*#font-size-selector {
@@ -93,7 +111,7 @@ html, body, #wrapper {
     border:none
 }*/
 
-
+/*
 #accountpane {
     display: flex;
     flex-direction: row;
@@ -103,8 +121,8 @@ html, body, #wrapper {
     width: 20%;
     font-family: monospace;
     font-size: 18px;
-    background-color: rgb(37, 15, 102);;
-}
+    background-color: rgb(15, 14, 69);;
+}*/
 
 
 
@@ -122,6 +140,7 @@ html, body, #wrapper {
 /*    background-color: green;*/
 /*    margin-top: 10px;*/
 /*    border: 2px solid red;*/
+
 }
 
 
@@ -130,9 +149,14 @@ html, body, #wrapper {
 /*    min-width: 200px;*/
     width: 20%;
 /*    min-height: 400px;*/
-/*    height: 100%;*/
-    background-color: yellow;
-/*    border: 2px solid cyan;*/
+    height: 99%;
+    margin: 6px 0px 0px 6px;
+
+
+
+    background-color: rgb(15, 14, 69);;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16) inset;
+    border-radius: 6px;
 }
 
 #container {
@@ -142,26 +166,45 @@ html, body, #wrapper {
 }
 
 #editor, #terminal {
-    position: absolute;
+    position: absolute; 
 }
 
 #editor {
     top: 0;
-    bottom: 200px;
-    width: 100%;
+    bottom: 30%;
+    width: 98%;
+    background-color: black;;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16);
+    border-radius: 6px;
+    margin: 8px 0px 0px 8px;
 }
 #terminal {
+    /*display: flex;
+    flex-direction: row;
+    justify-content: space-around;*/
     bottom: 0;
-    height: 200px;
+    height: 29%;
     width: 100%;
+    background-color: rgb(15, 14, 69);
+}
+
+#terminal_screen {
+    width: 98%;
+    height: 99%;
     background-color: black;
+    overflow: auto;
+    background-color: black;;
+    box-shadow: 0 0 2px 2px rgb(201, 121, 16) inset;
+    border-radius: 6px;
+    margin: 0px 8px;
+/*    max-height: 100%;*/
 }
 
 
 
 /* Tweaking API default styles */
 .CodeMirror {
-/*    border-radius: 8px;*/
+    border-radius: 6px;
 /*    font-family: monospace;*/
     font-size: 16px;
     height: 100%;

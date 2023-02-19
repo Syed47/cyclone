@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="codemirror/theme/eclipse.css">
         <link rel="stylesheet" href="codemirror/theme/monokai.css">
         <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
-        <link rel="stylesheet" href="xterm/css/xterm.css" />
         <link rel="stylesheet" href="style.css">
 
         <script src="codemirror/lib/codemirror.js"></script>
@@ -17,7 +16,6 @@
         <script src="codemirror/addon/fold/brace-fold.js"></script>
         <script src="codemirror/addon/fold/foldcode.js"></script>
         <script src="codemirror/addon/fold/foldgutter.js"></script>
-        <script src="xterm/lib/xterm.js"></script>
 
     </head>
 
@@ -29,9 +27,10 @@
                 </div>
                 <div id="actionpane">
                     <button class="action-btn" id="btn-run">Run</button>
-                    <button class="action-btn" id="btn-stop">Stop</button>
+                    
+                 <!--    <button class="action-btn" id="btn-stop">Stop</button>
                     <button class="action-btn" id="btn-download">Download</button>
-
+ -->
                     <select class="action-selector" id="font-size-selector">
                         <option value="tiny">12px</option>
                         <option value="small">14px</option>
@@ -59,9 +58,11 @@
                             <option value="darcula">darcula</option>
                         </optgroup>
                     </select>
+
+
                 </div>
 
-                <div id="accountpane">
+          <!--       <div id="accountpane">
                     <h3 style="margin: auto; margin-right: 20px; color: white;">John Doe</h3>
                     <div style="border-radius: 100px; 
                                 width: 40px; 
@@ -69,7 +70,7 @@
                                 margin-right: 10px;">  
                         <img style="height:100%; width:100%" src="media/user.png">  
                     </div>
-                </div>
+                </div> -->
             </div>
 
 
@@ -85,7 +86,9 @@
                 
                 <div id="container">
                     <div id="editor"></div>
-                    <div id="terminal"></div>
+                    <div id="terminal">
+                        <div id="terminal_screen"></div>
+                    </div>
                 </div>
             </div>
 
@@ -94,7 +97,7 @@
     </body>
 
     <script src="editor.js"></script>
-    <script src="terminal.js"></script>
+    <script src="renderer.js"></script>
 </html>
 
 
