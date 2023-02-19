@@ -5,7 +5,6 @@ document.getElementById("btn-run").addEventListener('click', (target) => {
         lines: editor.getValue()
     }
     window.api.script.save(file, (res) => {
-        console.log(res)
         window.api.script.run((response) => {
             document.getElementById('terminal_screen').innerHTML = response
         })

@@ -21,7 +21,7 @@ html, body, #wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
-    width: 98%;
+    width: 97%;
 /*    top:1px;*/
 /*    bottom: 1px;*/
     height: 40px;
@@ -181,7 +181,7 @@ html, body, #wrapper {
 #editor {
     top: 0;
     bottom: 30%;
-    width: 98%;
+    width: 97%;
     background-color: black;;
     box-shadow: 0 0 2px 2px rgb(52, 82, 158);
     border-radius: 6px;
@@ -195,21 +195,24 @@ html, body, #wrapper {
     height: 29%;
     width: 100%;
     background-color: rgb(15, 14, 69);
+/*    border: 2px solid green;*/
 }
 
 #terminal_screen {
-    width: 98%;
-    height: 99%;
-    background-color: black;
+    width: 97%;
+    height: 90%;
     overflow: auto;
     background-color: black;;
     box-shadow: 0 0 2px 2px rgb(52, 82, 158) inset;
     border-radius: 6px;
-    margin: 0px 8px;
+    margin: 0px 10px 0px;
+/*    margin: auto;*/
 /*    max-height: 100%;*/
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 #terminal_screen::-webkit-scrollbar {
