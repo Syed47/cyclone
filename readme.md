@@ -1,22 +1,20 @@
 ## CycloneR
 
-A simple IDE for the Cyclone Programming Language.
+**A simple IDE for the Cyclone Programming Language.**
 
 ## Installation
 
 1. Install [node.js](https://nodejs.org/en/download/) (if not installed already)
 
-2. Navigate to the folder
+2. Clone/Download the repository and navigate to it
 ```bash
 cd <path-to-cycloner>
 ```
-
 3. Install the dependencies
 ```bash
 npm install
 ```
-
-4. Open CycloneR
+4. _Open CycloneR_
 ```bash
 npm start
 ```
@@ -58,6 +56,10 @@ machine Bouncing_Ball_v1{
 }
 
 ```
+
+## Author
+
+[Syed Baryalay](www.linkedin.com/in/syedakacodeninja)
 
 ## License
 
