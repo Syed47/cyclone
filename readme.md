@@ -23,6 +23,8 @@ npm start
 
 Copy the code into CycloneR and click the 'run' button to execute the code.
 
+_Note: If you are using MacOS, you need to allow MacOS to safely run libz3.dylib and libz3java.dylib. To do this, follow the instructions [here](https://support.apple.com/en-ie/HT202491)_
+
 ```cpp
 /* A bouncing ball test */
 
