@@ -7,6 +7,7 @@ const createWindow = () => {
         height: 720,
         minWidth: 640,
         minHeight: 480,
+        icon: path.join(__dirname, 'public', 'media', 'user.png'),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true
@@ -14,7 +15,7 @@ const createWindow = () => {
     })
 
     win.loadFile(path.join('public', 'index.html'))
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {

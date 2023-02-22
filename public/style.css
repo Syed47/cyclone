@@ -81,17 +81,24 @@ html, body, #wrapper {
     background-color: rgb(15, 14, 69);;
     box-shadow: 0 0 2px 2px rgb(52, 82, 158) inset;
     border-radius: 6px;
-    text-shadow: 2px 2px 8px #FF0000;
+    text-shadow: 2px 2px 8px 8px #FF0000;
 }
 
 #btn-run { 
-    color: rgb(201, 121, 16);; 
+    color: rgb(201, 121, 16);
     background-color: rgb(15, 14, 69);
     box-shadow: 0 0 2px 2px lime inset;
+}
 
+#btn-stop { 
+    color: rgb(201, 121, 16);; 
+    background-color: rgb(15, 14, 69);
+    box-shadow: 0 0 2px 2px red inset;
+}
+
+#btn-download { 
+    background-color: orange; 
 } 
-#btn-stop { background-color: red; } 
-#btn-download { background-color: orange; } 
 
 .action-selector {
     padding: 0px 8px;
@@ -111,29 +118,15 @@ html, body, #wrapper {
 
 #runicon {
     color: lime;
-    text-shadow: 2px 2px px lime;
+    font-size: 1.2em;
+/*    text-shadow: 2px 2px 2px 2px lime;*/
 }
 
-/*#font-size-selector {
-    padding: 10px; 
-    background-color:paleturquoise; 
-    border:none
-}*/
-
-/*
-#accountpane {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0px 10px 0px 10px;
-    height: 100%;
-    width: 20%;
-    font-family: monospace;
-    font-size: 18px;
-    background-color: rgb(15, 14, 69);;
-}*/
-
-
+#stopicon {
+    color: red;
+    font-size: 1.8em;
+/*    text-shadow: 0px 0px 2px 2px red;*/
+}
 
 
 
