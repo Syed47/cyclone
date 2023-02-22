@@ -47,11 +47,9 @@ const code = {
         if (!fs.existsSync('usercode')){
             fs.mkdirSync('usercode');
         }
-        var stream = fs.createWriteStream(path.join('usercode', file.name));
-        stream.once('open', function(fd) {
-            for (const line of file.lines) {
-                stream.write(line)
-            }
+        const stream = fs.createWriteStream(path.join('usercode', file.name));
+        stream.once('open', (fd) => {
+            for (const line of file.lines) stream.write(line)
             stream.end();
             const html = `<div style="${style}; font-size:16px; color: lime;"><span>Saved</span></div>` +
             `<div style="${style}; font-size:16px; color: lime;"><span>Running ...</span></div>`

@@ -1,27 +1,38 @@
+const run = document.getElementById("btn-run")
+const stop = document.getElementById("btn-stop")
+const terminal = document.getElementById('terminal_screen')
 
 
-// styling for terminal output
-const style = `display: flex; align-items: center; justify-content: left; padding-left: 12px`;
+stop.style.display = "none";
 
 // running code and returning response to the DOM
-document.getElementById("btn-run").addEventListener('click', (target) => {
-    const file = {
-        name: "code.cyclone",
-        lines: editor.getValue()
-    }
+run.addEventListener('click', (target) => {
+    stop.style.display = "inline";
+    run.disabled = true;
+    // stop.disabled = false;
+    // run.style.backgroundColor = "gray";
+    const file = { name: "code.cyclone", lines: editor.getValue() }
     window.api.code.save(file, (response) => {
-        document.getElementById('terminal_screen').innerHTML = response
+        terminal.innerHTML = response
         window.api.code.run((response) => {
-            document.getElementById('terminal_screen').innerHTML = response
+            terminal.innerHTML = response
+            run.disabled = false;
+            stop.style.display = "none"
+            // run.style.backgroundColor = "rgb(15, 14, 69)";
         })
     })
 
 })
 
 
-document.getElementById("btn-stop").addEventListener('click', (target) => {
+stop.addEventListener('click', (target) => {
+    // run.disabled = false;
+    stop.disabled = true;
+    // stop.style.backgroundColor = "gray";
     window.api.code.stop((status) => {
-        // console.log(status)
-        document.getElementById('terminal_screen').innerHTML += status
+        terminal.innerHTML += status
+        stop.disabled = false;
+        stop.style.display = "none"
+        // stop.style.backgroundColor = "rgb(15, 14, 69)";
     })
 })
