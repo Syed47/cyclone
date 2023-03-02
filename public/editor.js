@@ -3,7 +3,7 @@ const codeFold = CodeMirror.newFoldFunction(CodeMirror.braceRangeFinder)
 
 const editor = CodeMirror(document.getElementById("editor"), {
     mode: "text/x-cyclone",
-    theme: "monokai",
+    theme: "darcula",
     tabSize: 4,
     tabMode: 'indent',
     lineNumbers: true,
