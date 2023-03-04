@@ -1,6 +1,6 @@
-## CycloneR
+## Cyclone IDE
 
-**A simple IDE for the Cyclone Programming Language.**
+**A very simple ide for Cyclone.**
 
 ## Installation
 
