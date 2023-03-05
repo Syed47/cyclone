@@ -1,52 +1,49 @@
-const { contextBridge } = require('electron')
 const shell = require('shelljs')
+const kill = require("tree-kill")
 const path = require('path')
 const fs = require('fs')
-const child_process = require('child_process');
 
-
-var Convert = require('ansi-to-html');
-var convert = new Convert();
-
+const AnsiToHTML = require('ansi-to-html');
+const ansiText = new AnsiToHTML();
 
 // styling for terminal output
 const style = `display: flex; align-items: center; justify-content: left; padding-left: 12px`;
 
 
-const code = {
-    status: false,
+const ActionEvent = {
     process: null,
-    run: (callback) => {
-        code.status = false
+    
+    run(callback) {
+        const script = "java -jar cyclone.jar ../usercode/code.cyclone " + 
+            (process.platform === "win32" ? "*>" : "&>") + 
+            " ../usercode/response.txt";
         shell.cd('Cyclone')
-        const script = `java -jar cyclone.jar ../usercode/code.cyclone &> ../usercode/response.txt`
-        code.process = shell.exec(script, (_code, _output) => {
+        ActionEvent.process = shell.exec(script, (_code, _output) => {
             fs.readFile(path.join(__dirname, 'usercode', 'response.txt'), (err, data) => {
                 if (err) return console.error(err);
-                let htmllines = convert.toHtml(data.toString())
+                const htmllines = (process.platform === "darwin" ? 
+                    ansiText.toHtml(data.toString()) : 
+                    data.toString()) 
                     .split('\n')
-                    .map(tag => `<div style="${style}">${tag}</div>`)
+                    .map(tag => `<div style="${style}; color: white;">${tag}</div>`)
                     .join(' ')
-                if (code.status) {
-                    htmllines += `<br><div style="${style}; color: red;"><span>Stopped.</span></div>`;
-                }
                 callback(htmllines)
             });
             shell.cd("..")
         })
     },
 
-    stop: (callback) => {
-        if (code.process !== null) {
-            code.status = code.process.kill('SIGKILL')
-            callback(code.status)
-        }
+    stop(callback) {
+        console.log(process.platform) 
+        kill(ActionEvent.process.pid, "SIGTERM", (err) => {
+            if (err) callback(err)
+            const htmllines = `<br><div style="${style}; color: red;"><span>Terminated.</span></div>`;
+            callback(htmllines)
+        })
     },
 
-    save: (file, callback) => {
-        if (!fs.existsSync('usercode')){
-            fs.mkdirSync('usercode');
-        }
+    save(file, callback) {
+        if (!fs.existsSync('usercode')) fs.mkdirSync('usercode'); 
         const stream = fs.createWriteStream(path.join('usercode', file.name));
         stream.once('open', (fd) => {
             for (const line of file.lines) stream.write(line)
@@ -60,7 +57,8 @@ const code = {
 
 
 
-
-contextBridge.exposeInMainWorld("api", { code })
+require('electron')
+    .contextBridge
+    .exposeInMainWorld("api", { event: ActionEvent })
 
 
