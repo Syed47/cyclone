@@ -9,11 +9,10 @@ function saveAndRunCode(target) {
     stop.style.display = "inline";
     run.disabled = true;
     const file = { name: "code.cyclone", lines: editor.getValue() }
-    window.api.event.save(file, (response) => {
-        terminal.innerHTML = response
-        window.api.event.run((response) => {
-            console.log(response)
-            terminal.innerHTML = response
+    window.api.code.save(file, (stdout) => {
+        terminal.innerHTML = stdout
+        window.api.code.run((stdout) => {
+            terminal.innerHTML = stdout
             run.disabled = false;
             stop.style.display = "none"
         })
@@ -21,11 +20,10 @@ function saveAndRunCode(target) {
 }
 
 
-
 function terminate(target) {
     stop.disabled = true;
-    window.api.event.stop((status) => {
-        terminal.innerHTML += status
+    window.api.code.terminate((stdout) => {
+        terminal.innerHTML = stdout
         stop.disabled = false;
         stop.style.display = "none"
     })
