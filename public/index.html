@@ -3,10 +3,15 @@
     <head>
         <link rel="stylesheet" href="codemirror/lib/codemirror.css">
         <link rel="stylesheet" href="codemirror/theme/solarized.css">
-        <link rel="stylesheet" href="codemirror/theme/twilight.css">
-        <link rel="stylesheet" href="codemirror/theme/darcula.css">
         <link rel="stylesheet" href="codemirror/theme/eclipse.css">
         <link rel="stylesheet" href="codemirror/theme/monokai.css">
+        <link rel="stylesheet" href="codemirror/theme/darcula.css">
+        <link rel="stylesheet" href="codemirror/theme/dracula.css">
+        <link rel="stylesheet" href="codemirror/theme/ambiance.css">
+        <link rel="stylesheet" href="codemirror/theme/material.css">
+        <link rel="stylesheet" href="codemirror/theme/the-matrix.css">
+        <link rel="stylesheet" href="codemirror/theme/seti.css">
+
         <link rel="stylesheet" href="codemirror/addon/fold/foldgutter.css">
         <link rel="stylesheet" href="style.css">
 
@@ -27,6 +32,7 @@
                     <p id="logo-text">Cyclone</p>
                 </div>
                 <div id="actionpane">
+                    <button class="action-btn" id="btn-save"><span id="saveicon">⇧</span></button>
                     <button class="action-btn" id="btn-run"><span id="runicon">►</span></button>
                     <button class="action-btn" id="btn-stop"><span id="stopicon">▇</span></button>
 
@@ -35,37 +41,38 @@
                         <option value="small">14px</option>
                         <option value="medium" selected>16px</option>
                         <option value="large">18px</option>
-                        <option value="super">22px</option>
+                        <option value="super">20px</option>
                     </select>
 
                     <select class="action-selector" id="font-selector">
                         <option value="Arial">Arial</option>
-                        <option value="Tahoma">Tahoma</option>
+                        <option value="Comic">Comic</option>
                         <option value="Courier" selected>Courier</option>
-                        <option value="Monaco">Monaco</option>
+                        <!-- <option value="Monaco">Monaco</option> -->
                     </select>
 
                     <select class="action-selector" id="theme-selector">
                         <optgroup label="Light">
-                            <option value="eclipse">eclipse</option>
-                            <option value="solarized">solarized</option>
+                            <option value="eclipse">Eclipse</option>
+                            <option value="solarized">Solarized</option>
                         </optgroup>
 
                         <optgroup label="Dark">
-                            <option value="monokai" selected>monokai</option>
-                            <option value="twilight">twilight</option>
-                            <option value="darcula">darcula</option>
+                            <option value="ambiance" selected>Ambiance</option>
+                            <option value="darcula">Darcula</option>
+                            <option value="dracula">Dracula</option>
+                            <option value="material">Material</option>
+                            <option value="monokai">Monokai</option>
+                            <option value="matrix">Matrix</option>
+                            <option value="seti">Seti</option>
                         </optgroup>
                     </select>
-
-
                 </div>
             </div>
 
 
-
             <div id="core">
-   <!--              <div id="fileexplorer-wrapper">
+                <!-- <div id="fileexplorer-wrapper">
                     <div id="fileexplorer-actionpane">
                     </div>
                     <div id="fileexplorer-core"></div>
@@ -79,12 +86,12 @@
                 </div>
             </div>
 
-            <div id="bottombar"></div>
+            <!-- <div id="bottombar"></div> -->
         </div>
     </body>
 
-    <script src="editor.js"></script>
-    <script src="renderer.js"></script>
+    <script src="config.js"></script>
+    <script src="index.js"></script>
 </html>
 
 

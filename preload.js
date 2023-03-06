@@ -55,6 +55,10 @@ const Code = {
             callback(html)
         });
     },
+
+    saveToFile: (file, callback) => {
+        
+    }
 }
 
 
