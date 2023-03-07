@@ -5,10 +5,11 @@
     const font = $.getElementById("font-selector");
     const theme = $.getElementById("theme-selector");
 
-    const save = document.getElementById("btn-save")
-    const run = document.getElementById("btn-run")
-    const stop = document.getElementById("btn-stop")
-    const terminal = document.getElementById('terminal_screen')
+    const save = $.getElementById("btn-save")
+    const run = $.getElementById("btn-run")
+    const stop = $.getElementById("btn-stop")
+    const collapse = $.getElementById("btn-collapse")
+    const terminal = $.getElementById('terminal_screen')
 
     fontSize.addEventListener("change", changeFontSize)
     font.addEventListener("change", changeFont);
@@ -17,7 +18,23 @@
     run.addEventListener('click', execute)
     stop.addEventListener('click', terminate)
     save.addEventListener('click', saveToFile)
+    collapse.addEventListener('click', showHideMenu)
 
+
+    function showHideMenu() {
+        if (fontSize.style.display === "inline" && 
+            font.style.display === "inline" &&
+            theme.style.display === "inline") {
+
+            fontSize.style.display = "none"
+            font.style.display = "none"
+            theme.style.display = "none"
+        } else {
+            fontSize.style.display = "inline"
+            font.style.display = "inline"
+            theme.style.display = "inline"
+        }
+    }
 
     function changeFontSize(target) {
         editorInstance.style.fontSize = ((value) => {
@@ -34,14 +51,12 @@
 
     function changeFont(target) {
         editorInstance.style.fontFamily = ((value) => {
-            console.log(value)
             switch(value) {
                 case "Arial":   return "Arial";
                 case "Comic":  return "Comic Sans MS";
                 case "Courier": return "Courier";
                 default:        return "Courier";
             }
-            console.log(value)
         })(font.value)
     }
 
@@ -67,14 +82,14 @@
         const content = editor.getValue();
         const blob = new Blob([content], { type: 'text/plain' });
 
-        const anchor = document.createElement('a');
+        const anchor = $.createElement('a');
         anchor.download = "code.cyclone";
         anchor.href = URL.createObjectURL(blob);
         anchor.style.display = 'none';
 
-        document.body.appendChild(anchor);
+        $.body.appendChild(anchor);
         anchor.click();
-        document.body.removeChild(anchor);
+        $.body.removeChild(anchor);
     }
 
     function execute(target) {
