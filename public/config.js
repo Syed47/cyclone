@@ -34,7 +34,7 @@ const editor = CodeMirror($.getElementById("editor"), {
 })
 
 
-editor.setValue(`graph Q2 {
+editor.setValue(`graph G {
     start state S{}
     final state q1{}
     final state r1{}

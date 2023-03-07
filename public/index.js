@@ -70,7 +70,6 @@
                 case "darcula":   return "darcula";
                 case "dracula":   return "dracula";
                 case "ambiance":  return "ambiance";
-                case "material":  return "material";
                 case "matrix":    return "the-matrix";
                 case "seti":      return "seti";
                 default:          return "ambiance";
