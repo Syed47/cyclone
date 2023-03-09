@@ -34,7 +34,11 @@ const editor = CodeMirror($.getElementById("editor"), {
 })
 
 
-editor.setValue(`graph G {
+editor.setValue(`// Demo
+option-trace=true;
+option-output="dot";
+
+graph FA {
     start state S{}
     final state q1{}
     final state r1{}

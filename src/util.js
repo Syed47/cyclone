@@ -18,7 +18,9 @@ const timestamp = () => {
 
 
 const html = (str, color, command=false) => {
-    const style = `display: flex; align-items: center; justify-content: left; padding-left: 4px;`;
+    const style = "display: flex; align-items: center;" +
+        " justify-content: left; padding-left: 4px;" +
+        "font-family: courier;"
     let line = `<div style="${style};">`
     if (color) line = `<div style="${style}; color: ${color};">`
     if (command) line += `<span>>>> ${str}</span>`;
@@ -29,10 +31,13 @@ const html = (str, color, command=false) => {
 
 const stdout = output => html(timestamp(), "cyan", true) + output
 
+const os = name => process.platform === name;
+
 
 module.exports = {
     ansiToHTML,
     timestamp,
     html,
-    stdout
+    stdout,
+    os
 }

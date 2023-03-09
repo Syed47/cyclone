@@ -6,6 +6,7 @@
     const theme = $.getElementById("theme-selector");
 
     const save = $.getElementById("btn-save")
+    const trace = $.getElementById("btn-trace")
     const run = $.getElementById("btn-run")
     const stop = $.getElementById("btn-stop")
     const collapse = $.getElementById("btn-collapse")
@@ -18,7 +19,12 @@
     run.addEventListener('click', execute)
     stop.addEventListener('click', terminate)
     save.addEventListener('click', saveToFile)
+    trace.addEventListener('click', showTrace)
     collapse.addEventListener('click', showHideMenu)
+
+    const cache = {
+        code: undefined
+    }
 
 
     function showHideMenu() {
@@ -35,6 +41,7 @@
             theme.style.display = "inline"
         }
     }
+
 
     function changeFontSize(target) {
         editorInstance.style.fontSize = ((value) => {
@@ -82,7 +89,7 @@
         const blob = new Blob([content], { type: 'text/plain' });
 
         const anchor = $.createElement('a');
-        anchor.download = "code.cyclone";
+        anchor.download = run.disabled ? "graph.dot" : "code.cyclone";
         anchor.href = URL.createObjectURL(blob);
         anchor.style.display = 'none';
 
@@ -91,16 +98,34 @@
         $.body.removeChild(anchor);
     }
 
+    function showTrace(target) {
+        if (run.disabled) {
+            run.disabled = false
+            editor.setValue(cache.code)
+        } else {
+            cache.code = editor.getValue()
+            window.api.code.trace(trace => {
+                if (trace === null) {
+                    alert("Trace not found")
+                } else {
+                    run.disabled = true
+                    editor.setValue(trace)
+                }
+            })
+        }
+    }
+
     function execute(target) {
         stop.style.display = "inline";
         run.disabled = true;
-        const file = { name: "code.cyclone", lines: editor.getValue() }
-        window.api.code.save(file, (stdout) => {
+        window.api.code.save(editor.getValue(), (stdout) => {
             terminal.innerHTML = stdout
-            window.api.code.run((stdout) => {
+            window.api.code.run((stdout, tracee) => {
                 terminal.innerHTML = stdout
                 run.disabled = false;
                 stop.style.display = "none"
+                if (tracee) trace.disabled = false
+                else trace.disabled = true
             })
         })
     }
@@ -111,6 +136,7 @@
             terminal.innerHTML = stdout
             stop.disabled = false;
             stop.style.display = "none"
+            trace.disabled = true
         })
     }
 }())

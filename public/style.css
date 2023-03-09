@@ -33,7 +33,7 @@ html, body, #wrapper {
 }
 
 #logo {
-    padding-top: 2px;
+    padding-top: 4px;
     width: 36px;
     height: 36px;
 }
@@ -42,9 +42,10 @@ html, body, #wrapper {
     width: 80%;
     color: rgb(253, 150, 49);
     font-family: monospace;
-    font-size: 32px;
+    font-size: 28px;
     margin: auto;
     padding-left: 5px;
+/*    margin-bottom: 8px;*/
     text-shadow: 1px 1px 2px rgb(253, 150, 49);
 
 }
@@ -69,6 +70,7 @@ html, body, #wrapper {
     font-size: 12px;
     cursor: pointer;
     margin: 6px;
+    margin-right: 0px;
     font-weight: bold;
     border-radius: 8px;
     background-color: rgb(27, 28, 27);;
@@ -82,8 +84,14 @@ html, body, #wrapper {
     box-shadow: 0 0 1px 1px gray inset;
 }
 
+#btn-trace { 
+    color: rgb(253, 150, 49);
+    background-color: rgb(27, 28, 27);
+    box-shadow: 0 0 1px 1px gray inset;
+}
+
 #btn-run { 
-    color: lime;
+    color: rgb(30, 200, 0);;
     background-color: rgb(27, 28, 27);
     box-shadow: 0 0 1px 1px gray inset;
 }
@@ -117,11 +125,18 @@ html, body, #wrapper {
 }
 
 
+#btn-trace:disabled,
+#btn-trace[disabled]{
+    color: gray;
+    box-shadow: 0 0 1px 1px gray inset;
+}
+
 .action-selector {
     display: none;
-    padding: 0px 4px;
+    padding-left: 6px;
+    padding-right: 6px;
     color: rgb(253, 150, 49);
-    font-size: 0.75em;
+    font-size: 0.7em;
     font-weight: bold;
     cursor: pointer;
     margin: 6px;
@@ -135,19 +150,26 @@ html, body, #wrapper {
     font-size: 1.25em;
 }
 
+#traceicon {
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
 #runicon {
     color: inherit;
     font-size: 1.4em;
 }
 
 #stopicon {
-    color: inherit;
+    color: rgb(186, 37, 0);
     font-size: 1em;
+    padding: 2px
 }
 
 #collapseicon {
     color: inherit;
-    font-size: 1.25em;
+    font-size: 1.35em;
 }
 
 

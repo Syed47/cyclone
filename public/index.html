@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="en">
+        <title>Cyclone</title>
         <link rel="stylesheet" href="codemirror/lib/codemirror.css">
         <link rel="stylesheet" href="codemirror/theme/solarized.css">
         <link rel="stylesheet" href="codemirror/theme/eclipse.css">
@@ -20,7 +21,6 @@
         <script src="codemirror/addon/fold/brace-fold.js"></script>
         <script src="codemirror/addon/fold/foldcode.js"></script>
         <script src="codemirror/addon/fold/foldgutter.js"></script>
-
     </head>
 
     <body>
@@ -31,8 +31,9 @@
                     <p id="logo-text">Cyclone</p>
                 </div>
                 <div id="actionpane">
-                    <button class="action-btn" id="btn-run"><span id="runicon">►</span></button>
                     <button class="action-btn" id="btn-stop"><span id="stopicon">▇</span></button>
+                    <button class="action-btn" id="btn-run"><span id="runicon">►</span></button>
+                    <button class="action-btn" id="btn-trace" disabled><span id="traceicon">⇄</span></button>
                     <button class="action-btn" id="btn-save"><span id="saveicon">⇧</span></button>
 
                     <select class="action-selector" id="font-size-selector">
@@ -47,7 +48,6 @@
                         <option value="Arial">Arial</option>
                         <option value="Comic">Comic</option>
                         <option value="Courier" selected>Courier</option>
-                        <!-- <option value="Monaco">Monaco</option> -->
                     </select>
 
                     <select class="action-selector" id="theme-selector">
