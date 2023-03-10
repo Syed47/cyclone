@@ -29,20 +29,15 @@ const Code = {
                 const response = os("win32") ? 
                     data.toString() : 
                     ansiToHTML(data.toString())
+
                 Code.stdout = Code.process === null ? Code.stdout : stdout(response)
                     .split('\n')
                     .map(tag => html(tag, color=os("win32") ? "white" : null))
                     .join(' ');    
 
-
                 const traced = data.toString().match(/.*Trace\sGenerated:.*(\\|\/)(\w+)\.(trace|dot).*/)
-                if (traced && traced.length > 1) {
-                    Code.trace = traced[2] + "." + traced[3]
-                } else {
-                    Code.trace = null
-                }
-
-
+                Code.trace = traced ? traced[2] + "." + traced[3] : null;
+                
                 callback(Code.stdout, Code.trace)
             });
             shell.cd("..")

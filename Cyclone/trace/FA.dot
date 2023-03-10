@@ -1,0 +1,59 @@
+/*
+* Dot trace for FA
+* [Time Stamp]:02:13:57, Mar-10-2023
+* [Location]:C:\Users\barya\Desktop\cyclone\Cyclone\trace\FA.dot
+* [States]:5
+* S q1 q2 r1 r2 
+* [Trans]:10
+* [Start State]:S
+* [Final State(s)]:
+*q1 r1 
+* [Trace Length]:7 
+*/
+
+
+
+
+digraph G { 
+
+
+
+	 rankdir="LR"
+
+
+
+	n0 [color="black", style="rounded, filled" , fillcolor="pink" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[0] @S</b></td></tr>
+		 </table> > ]
+	n1 [color="black", style="rounded, filled" , fillcolor="orange" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[1] @q1</b></td></tr>
+		 </table> > ]
+	n2 [color="black", style="rounded, filled" , fillcolor="orange" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[2] @q1</b></td></tr>
+		 </table> > ]
+	n3 [color="black", style="rounded, filled" , fillcolor="springgreen" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[3] @q2</b></td></tr>
+		 </table> > ]
+	n4 [color="black", style="rounded, filled" , fillcolor="springgreen" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[4] @q2</b></td></tr>
+		 </table> > ]
+	n5 [color="black", style="rounded, filled" , fillcolor="orange" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[5] @q1</b></td></tr>
+		 </table> > ]
+	n6 [color="black", style="rounded, filled" , fillcolor="orange" , shape="rect", label= < 
+ 		 <table border='0' cellborder='0' style='rounded'> 
+			 <tr><td align="center" colspan="2" > <b>[6] @q1</b></td></tr>
+		 </table> > ]
+
+
+
+
+	n0->n1->n2->n3->n4->n5->n6
+ } 
+

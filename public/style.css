@@ -29,7 +29,7 @@ html, body, #wrapper {
     justify-content: space-between; 
     width: 20%;
     height: 100%;
-    margin-left: 16px;
+    margin-left: 8px;
 }
 
 #logo {
@@ -39,15 +39,14 @@ html, body, #wrapper {
 }
 
 #logo-text {
-    width: 80%;
+    text-decoration: none;
+    width: 90%;
     color: rgb(253, 150, 49);
     font-family: monospace;
     font-size: 28px;
     margin: auto;
     padding-left: 5px;
-/*    margin-bottom: 8px;*/
     text-shadow: 1px 1px 2px rgb(253, 150, 49);
-
 }
 
 #actionpane {
@@ -158,13 +157,12 @@ html, body, #wrapper {
 
 #runicon {
     color: inherit;
-    font-size: 1.4em;
+    font-size: 1.25em;
 }
 
 #stopicon {
     color: rgb(186, 37, 0);
-    font-size: 1em;
-    padding: 2px
+    font-size: 1.4em;
 }
 
 #collapseicon {
@@ -205,7 +203,7 @@ html, body, #wrapper {
 #editor {
     top: 0;
     bottom: 30%;
-    width: 97%;
+    width: 98%;
     background-color: black;;
     border-radius: 6px;
     margin: 8px 0px 2px 10px;
@@ -213,7 +211,7 @@ html, body, #wrapper {
 #terminal {
     bottom: 0;
     height: 29%;
-    width: 97%;
+    width: 98%;
     background-color: rgb(27, 28, 27);
 }
 

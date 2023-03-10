@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
@@ -8,6 +8,7 @@ const createWindow = () => {
         height: 720,
         minWidth: 640,
         minHeight: 480,
+        autoHideMenuBar: true,
         icon: path.join(__dirname, 'public', 'media', 'logo.ico'),
         webPreferences: {
             preload: path.join(__dirname, 'src', 'preload.js'),
@@ -15,6 +16,7 @@ const createWindow = () => {
         }
     })
 
+    win.setMenu(null)
     win.loadFile(path.join('public', 'index.html'))
     win.webContents.openDevTools()
 }
