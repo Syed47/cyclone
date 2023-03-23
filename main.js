@@ -18,7 +18,7 @@ const createWindow = () => {
 
     win.setMenu(null)
     win.loadFile(path.join('public', 'index.html'))
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {

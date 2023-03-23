@@ -1,4 +1,4 @@
 node_modules/
-usercode/
+sandbox/
 **/.DS_Store
 **/toks.txt

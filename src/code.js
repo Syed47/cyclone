@@ -2,28 +2,22 @@ const shell = require('shelljs')
 const kill = require("tree-kill")
 const path = require('path')
 const fs = require('fs')
-const { 
-    os, 
-    html, 
-    stdout, 
-    ansiToHTML, 
-    timestamp, 
-} = require('./util.js')
+const { os, html, stdout, ansiToHTML, timestamp } = require('./util.js')
 
 const Code = {
     process: null,
     trace: null,
     stdout: "",
-    output: path.join(__dirname, '..', 'usercode'),
+    sandbox: path.join(__dirname, '..', 'sandbox'),
     run: (callback) => {
-        const script = "java -jar cyclone.jar ../usercode/code.cyclone " + 
+        const script = "java -jar cyclone.jar ../sandbox/code.cyclone " + 
             (os("win32") ? "*>" : "&>") + 
-            " ../usercode/response.txt";
+            " ../sandbox/response.txt";
 
         shell.cd('Cyclone')
 
         Code.process = shell.exec(script, (_code, _output) => {
-            fs.readFile(path.join(Code.output, 'response.txt'), (err, data) => {
+            fs.readFile(path.join(Code.sandbox, 'response.txt'), (err, data) => {
                 if (err) return console.error(err);
 
                 const response = os("win32") ? 
@@ -54,8 +48,8 @@ const Code = {
     },
 
     save: (content, callback) => {
-        if (!fs.existsSync(Code.output)) fs.mkdirSync(Code.output); 
-        fs.writeFile(path.join(Code.output, "code.cyclone"), content, (err) => {
+        if (!fs.existsSync(Code.sandbox)) fs.mkdirSync(Code.sandbox); 
+        fs.writeFile(path.join(Code.sandbox, "code.cyclone"), content, (err) => {
             if (err) console.error(err);
             const response = stdout(html("Saved", "lime", true))
             callback(response)

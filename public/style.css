@@ -127,6 +127,7 @@ html, body, #wrapper {
 #btn-trace:disabled,
 #btn-trace[disabled]{
     color: gray;
+    cursor: not-allowed;
     box-shadow: 0 0 1px 1px gray inset;
 }
 
@@ -227,6 +228,7 @@ html, body, #wrapper {
     overflow-y: scroll; 
     padding-top: 8px;
     padding-bottom: 8px;
+    cursor: text;
 }
 
 #terminal_screen::-webkit-scrollbar {

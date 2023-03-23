@@ -25,18 +25,19 @@
 
     <body>
         <div id="wrapper">
+
             <div id="navbar">
                 <div id="logopane">
-                    <img id="logo" src="media/logo.png" width="36px" height="36px" alt="logo">
-                    <a id="logo-text" href="https://classicwuhao.github.io/cyclone_tutorial/tutorial-content.html" target="new">Cyclone</a>
+                    <img id="logo" src="media/logo.png" title="Developed by Syed Baryalay, forward your queries to 'deys2f@protonmail.com'" width="36px" height="36px" alt="logo">
+                    <a id="logo-text" title="See Examples" href="https://classicwuhao.github.io/cyclone_tutorial/tutorial-content.html" target="new">Cyclone</a>
                 </div>
                 <div id="actionpane">
-                    <button class="action-btn" id="btn-stop"><span id="stopicon">⤬</span></button>
-                    <button class="action-btn" id="btn-run"><span id="runicon">▶</span></button>
-                    <button class="action-btn" id="btn-trace" disabled><span id="traceicon">⇄</span></button>
-                    <button class="action-btn" id="btn-save"><span id="saveicon">⇧</span></button>
+                    <button class="action-btn" id="btn-stop" title="Terminate/Stop"><span id="stopicon">⤬</span></button>
+                    <button class="action-btn" id="btn-run" title="Execute/Run"><span id="runicon">▶</span></button>
+                    <button class="action-btn" id="btn-trace" title="Show Trace" disabled><span id="traceicon">⇄</span></button>
+                    <button class="action-btn" id="btn-save" title="Save"><span id="saveicon">⇧</span></button>
 
-                    <select class="action-selector" id="font-size-selector">
+                    <select class="action-selector" id="font-size-selector" title="Font Size">
                         <option value="tiny">12px</option>
                         <option value="small">14px</option>
                         <option value="medium" selected>16px</option>
@@ -44,13 +45,13 @@
                         <option value="super">20px</option>
                     </select>
 
-                    <select class="action-selector" id="font-selector">
+                    <select class="action-selector" id="font-selector" title="Fonts">
                         <option value="Arial">Arial</option>
                         <option value="Comic">Comic</option>
                         <option value="Courier" selected>Courier</option>
                     </select>
 
-                    <select class="action-selector" id="theme-selector">
+                    <select class="action-selector" id="theme-selector" title="Colour Schemes">
                         <optgroup label="Light">
                             <option value="eclipse">Eclipse</option>
                             <option value="solarized">Solarized</option>
@@ -66,19 +67,13 @@
                         </optgroup>
                     </select>
 
-                    <button class="action-btn" id="btn-collapse"><span id="collapseicon">≡</span></button>
+                    <button class="action-btn" id="btn-collapse" title="Menu"><span id="collapseicon">≡</span></button>
 
                 </div>
             </div>
 
 
             <div id="core">
-                <!-- <div id="fileexplorer-wrapper">
-                    <div id="fileexplorer-actionpane">
-                    </div>
-                    <div id="fileexplorer-core"></div>
-                </div> -->
-                
                 <div id="container">
                     <div id="editor"></div>
                     <div id="terminal">
@@ -87,7 +82,6 @@
                 </div>
             </div>
 
-            <!-- <div id="bottombar"></div> -->
         </div>
     </body>
 
