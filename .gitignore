@@ -1,4 +1,5 @@
 node_modules/
 sandbox/
+test-results/
 **/.DS_Store
 **/toks.txt

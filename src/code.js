@@ -10,28 +10,27 @@ const Code = {
     stdout: "",
     sandbox: path.join(__dirname, '..', 'sandbox'),
     run: (callback) => {
-        const script = "java -jar cyclone.jar ../sandbox/code.cyclone " + 
-            (os("win32") ? "*>" : "&>") + 
-            " ../sandbox/response.txt";
+        const script = (os("win32") ? "" : "export LD_LIBRARY_PATH=. && ") + 
+            "java -jar cyclone.jar ../sandbox/code.cyclone " + 
+            (os("win32") ? "*>" : "&>") + " ../sandbox/response.txt";
 
         shell.cd('Cyclone')
-
         Code.process = shell.exec(script, (_code, _output) => {
             fs.readFile(path.join(Code.sandbox, 'response.txt'), (err, data) => {
-                if (err) return console.error(err);
-
-                const response = os("win32") ? 
-                    data.toString() : 
-                    ansiToHTML(data.toString())
-
-                Code.stdout = Code.process === null ? Code.stdout : stdout(response)
-                    .split('\n')
-                    .map(tag => html(tag, color=os("win32") ? "white" : null))
-                    .join(' ');    
-
-                const traced = data.toString().match(/.*Trace\sGenerated:.*(\\|\/)(\w+)\.(trace|dot).*/)
-                Code.trace = traced ? traced[2] + "." + traced[3] : null;
-                
+                if (err) return callback(null, null)
+                const content = data.toString()
+                const response = os("win32") ? content : ansiToHTML(content)
+                Code.trace = null
+                if (Code.process !== null) {
+                    Code.stdout = stdout(response).split('\n')
+                        .map(tag => html(tag, color=os("win32") ? "white" : null))
+                        .join(' ');
+                    const findTrace = /.*Trace\sGenerated:.*(\\|\/)(\w+)\.(trace|dot).*/
+                    const traced = content.match(findTrace)
+                    if (traced !== null && traced.length > 3) {
+                        Code.trace = traced[2] + "." + traced[3]
+                    }
+                }
                 callback(Code.stdout, Code.trace)
             });
             shell.cd("..")

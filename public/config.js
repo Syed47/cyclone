@@ -38,7 +38,7 @@ editor.setValue(`// Demo
 option-trace=true;
 option-output="dot";
 
-graph FA {
+graph G {
     start state S{}
     final state q1{}
     final state r1{}

@@ -27,7 +27,7 @@ Copy the code into Cyclone and click the 'run' button to execute the code.
 _Note: If you are using MacOS, you need to allow MacOS to safely run libz3.dylib and libz3java.dylib. To do this, follow the instructions [here](https://support.apple.com/en-ie/HT202491)_
 
 ```cpp
-graph Q2 {
+graph G {
     start state S{}
     final state q1{}
     final state r1{}

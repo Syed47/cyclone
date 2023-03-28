@@ -1,8 +1,6 @@
-const AnsiToHTML = require('ansi-to-html');
 
 const ansiToHTML = (text) => {
-    const converter = new AnsiToHTML();
-    return converter.toHtml(text)
+    return new (require('ansi-to-html'))().toHtml(text)
 }
 
 const timestamp = () => {
@@ -19,7 +17,7 @@ const timestamp = () => {
 
 const html = (str, color, command=false) => {
     const style = "display: flex; align-items: center;" +
-        " justify-content: left; padding-left: 4px;" +
+        "justify-content: left; padding-left: 4px;" +
         "font-family: courier;"
     let line = `<div style="${style};">`
     if (color) line = `<div style="${style}; color: ${color};">`

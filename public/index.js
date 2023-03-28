@@ -1,6 +1,8 @@
 (function() {
     "use strict";
 
+    const cache = { code: undefined }
+
     const fontSize = $.getElementById("font-size-selector");
     const font = $.getElementById("font-selector");
     const theme = $.getElementById("theme-selector");
@@ -21,10 +23,6 @@
     save.addEventListener('click', saveToFile)
     trace.addEventListener('click', showTrace)
     collapse.addEventListener('click', showHideMenu)
-
-    const cache = {
-        code: undefined
-    }
 
 
     function showHideMenu() {
@@ -124,8 +122,7 @@
                 terminal.innerHTML = stdout
                 run.disabled = false;
                 stop.style.display = "none"
-                if (tracee) trace.disabled = false
-                else trace.disabled = true
+                trace.disabled = !tracee
             })
         })
     }
