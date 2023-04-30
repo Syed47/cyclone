@@ -41,7 +41,7 @@
     }
 
 
-    function changeFontSize(target) {
+    function changeFontSize() {
         editorInstance.style.fontSize = ((value) => {
             switch(value) {
                 case "tiny":    return "12px";
@@ -54,7 +54,7 @@
         })(fontSize.value)
     }
 
-    function changeFont(target) {
+    function changeFont() {
         editorInstance.style.fontFamily = ((value) => {
             switch(value) {
                 case "Arial":   return "Arial";
@@ -65,7 +65,7 @@
         })(font.value)
     }
 
-    function changeTheme(target) {
+    function changeTheme() {
         editor.setOption('theme', ((value) => {
             switch(value) {
                 case "solarized": return "solarized";
@@ -82,7 +82,7 @@
         })(theme.value))
     }
 
-    function saveToFile(target) {
+    function saveToFile() {
         const content = editor.getValue();
         const blob = new Blob([content], { type: 'text/plain' });
 
@@ -96,7 +96,7 @@
         $.body.removeChild(anchor);
     }
 
-    function showTrace(target) {
+    function showTrace() {
         if (run.disabled) {
             run.disabled = false
             editor.setValue(cache.code)
@@ -113,7 +113,7 @@
         }
     }
 
-    function execute(target) {
+    function execute() {
         stop.style.display = "inline";
         run.disabled = true;
         window.api.code.save(editor.getValue(), (stdout) => {
@@ -127,7 +127,7 @@
         })
     }
 
-    function terminate(target) {
+    function terminate() {
         stop.disabled = true;
         window.api.code.terminate((stdout) => {
             terminal.innerHTML = stdout

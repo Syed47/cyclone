@@ -5,14 +5,14 @@ const fs = require('fs')
 const { os, html, stdout, ansiToHTML, timestamp } = require('./util.js')
 
 const Code = {
-    process: null,
+    process: null, 
     trace: null,
     stdout: "",
     sandbox: path.join(__dirname, '..', 'sandbox'),
     run: (callback) => {
         const script = (os("win32") ? "" : "export LD_LIBRARY_PATH=. && ") + 
             "java -jar cyclone.jar ../sandbox/code.cyclone " + 
-            (os("win32") ? "*>" : "&>") + " ../sandbox/response.txt";
+            (os("win32") ? "1> ../sandbox/response.txt 2>&1" : "&> ../sandbox/response.txt");
 
         shell.cd('Cyclone')
         Code.process = shell.exec(script, (_code, _output) => {
@@ -49,9 +49,8 @@ const Code = {
     save: (content, callback) => {
         if (!fs.existsSync(Code.sandbox)) fs.mkdirSync(Code.sandbox); 
         fs.writeFile(path.join(Code.sandbox, "code.cyclone"), content, (err) => {
-            if (err) console.error(err);
-            const response = stdout(html("Saved", "lime", true))
-            callback(response)
+            if (err) callback(stdout(html("Error", "orange", true)))
+            else callback(stdout(html("Saved", "lime", true)))
         });
     },
 
